@@ -27,37 +27,37 @@ local Scripts = {
         Name = "Mukbang Game",
         Url = "https://api.jnkie.com/api/v1/luascripts/public/e88ca53c5411b71906ac01239331111d2d77d67c491b6e54c29a0d73073c13b6/download",
         Image = "rbxthumb://type=Asset&id=7771801612&w=420&h=420",
-        Desc = "Auto eat, auto serve, farm cash."
+        Desc = "Auto eat, Auto serve, Farm bites."
     },
     {
         Name = "Anime Battle Arena",
         Url = "https://api.jnkie.com/api/v1/luascripts/public/82abbc9b8b6f058db6bc946fc78cd6e8de55a73ec1fc41dac8fc1dc50f44233c/download",
         Image = "rbxthumb://type=Asset&id=105470550715013&w=420&h=420",
-        Desc = "Auto farm, kill aura, auto skill."
+        Desc = "Esp, Auto Blackflash, Auto skill."
     },
     {
         Name = "Drain The Lake",
         Url = "https://api.jnkie.com/api/v1/luascripts/public/5abf740d7d979b1aaf1a6066f1141de33640730ff873b927a451fe92a3308ca7/download",
         Image = "rbxthumb://type=Asset&id=11846929740&w=420&h=420",
-        Desc = "Auto farm, auto sell, anti-afk."
+        Desc = "Auto farm, Auto sell, Anti-afk."
     },
     {
         Name = "Secure The Airport",
         Url = "https://api.jnkie.com/api/v1/luascripts/public/9d9d741496f120035c8d857013d1496e35d72027729bf3c61f813e1a2aad864e/download",
         Image = "rbxthumb://type=Asset&id=9398081024&w=420&h=420",
-        Desc = "Auto arrest, auto reload, auto luggage."
+        Desc = "Auto arrest, Auto kill, Auto luggage."
     },
     {
         Name = "MiniWar",
         Url = "https://api.jnkie.com/api/v1/luascripts/public/a36c44850b10031e778ccdbb93f0fe2e341095ba424bc64fb40641a8277e3637/download",
         Image = "rbxthumb://type=Asset&id=87207067782717&w=420&h=420",
-        Desc = "Auto farm, aimbot, esp."
+        Desc = "Auto farm, Auto buy, Auto collect."
     },
     {
         Name = "Animal Hospital",
         Url = "https://api.jnkie.com/api/v1/luascripts/public/660c49b30e646e6cce128a72f0065d8b885686af47c2f1494c7baf14a8eccd50/download",
         Image = "rbxthumb://type=Asset&id=82940645739430&w=420&h=420",
-        Desc = "Auto farm, aimbot, esp."
+        Desc = "Auto farm, Auto heal, Esp."
     }
 }
 
