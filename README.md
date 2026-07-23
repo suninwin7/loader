@@ -24,12 +24,6 @@ local Theme = {
 
 local Scripts = {
     {
-        Name = "Drain The Lake",
-        Url = "https://api.jnkie.com/api/v1/luascripts/public/5abf740d7d979b1aaf1a6066f1141de33640730ff873b927a451fe92a3308ca7/download",
-        Image = "rbxthumb://type=Asset&id=11846929740&w=420&h=420",
-        Desc = "Auto farm, auto sell, anti-afk."
-    },
-    {
         Name = "Mukbang Game",
         Url = "https://api.jnkie.com/api/v1/luascripts/public/e88ca53c5411b71906ac01239331111d2d77d67c491b6e54c29a0d73073c13b6/download",
         Image = "rbxthumb://type=Asset&id=7771801612&w=420&h=420",
@@ -40,6 +34,12 @@ local Scripts = {
         Url = "https://api.jnkie.com/api/v1/luascripts/public/82abbc9b8b6f058db6bc946fc78cd6e8de55a73ec1fc41dac8fc1dc50f44233c/download",
         Image = "rbxthumb://type=Asset&id=105470550715013&w=420&h=420",
         Desc = "Auto farm, kill aura, auto skill."
+    },
+    {
+        Name = "Drain The Lake",
+        Url = "https://api.jnkie.com/api/v1/luascripts/public/5abf740d7d979b1aaf1a6066f1141de33640730ff873b927a451fe92a3308ca7/download",
+        Image = "rbxthumb://type=Asset&id=11846929740&w=420&h=420",
+        Desc = "Auto farm, auto sell, anti-afk."
     },
     {
         Name = "Secure The Airport",
