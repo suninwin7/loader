@@ -61,13 +61,13 @@ local Scripts = {
     },
     {
         Name = "Murder Mystery 2",
-        Url = "",
+        Url = "https://api.jnkie.com/api/v1/luascripts/public/cb7419b605d598c7c7fa22fd673398ddc3a609ed12fe15a04e5cd1cc046138ab/download",
         Image = "rbxthumb://type=Asset&id=838484753&w=420&h=420",
         Desc = "Auto coin, boost fps, Auto box."
     },
 	{
         Name = "Night at the infirmary",
-        Url = "",
+        Url = "https://api.jnkie.com/api/v1/luascripts/public/0e5b3d262cdb2e27f6645a97f3bf4d06643e25d12730e637888644a66a73180d/download",
         Image = "rbxthumb://type=Asset&id=11891920271&w=420&h=420",
         Desc = "Auto checkin, Auto heal, esp."
     }
