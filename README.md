@@ -70,6 +70,12 @@ local Scripts = {
         Url = "https://api.jnkie.com/api/v1/luascripts/public/0e5b3d262cdb2e27f6645a97f3bf4d06643e25d12730e637888644a66a73180d/download",
         Image = "rbxthumb://type=Asset&id=11891920271&w=420&h=420",
         Desc = "Auto checkin, Auto heal, esp."
+    },
+	{
+        Name = "Home Alone (Anomaly)",
+        Url = "https://api.jnkie.com/api/v1/luascripts/public/ad7c82401cb2c897228819b03b8c30a902de114da2410b4cfb6675a8e7c141a8/download",
+        Image = "rbxthumb://type=Asset&id=10794318086&w=420&h=420",
+        Desc = "Esp, Inf sanity, Auto lobby"
     }
 }
 
