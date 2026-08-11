@@ -36,8 +36,8 @@ local Scripts = {
         Desc = "Esp, Auto Blackflash, Auto skill."
     },
     {
-        Name = "Drain The Lake",
-        Url = "https://api.jnkie.com/api/v1/luascripts/public/5abf740d7d979b1aaf1a6066f1141de33640730ff873b927a451fe92a3308ca7/download",
+        Name = "Drain The Lake (KEYLESS)",
+        Url = "https://obfuscatorhub.onrender.com/api/i71mnfmj",
         Image = "rbxthumb://type=Asset&id=11846929740&w=420&h=420",
         Desc = "Auto farm, Auto sell, Anti-afk."
     },
