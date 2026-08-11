@@ -60,8 +60,8 @@ local Scripts = {
         Desc = "Auto farm, Auto heal, Esp."
     },
     {
-        Name = "Murder Mystery 2",
-        Url = "https://api.jnkie.com/api/v1/luascripts/public/cb7419b605d598c7c7fa22fd673398ddc3a609ed12fe15a04e5cd1cc046138ab/download",
+        Name = "MM2 (KEYLESS)",
+        Url = "https://obfuscatorhub.onrender.com/api/nwsqf6ed",
         Image = "rbxthumb://type=Asset&id=838484753&w=420&h=420",
         Desc = "Auto coin, boost fps, Auto box."
     },
@@ -168,26 +168,414 @@ local function makeDraggable(frame, handle)
     end)
 end
 
-local function RunScript(ScriptData)
-    local Request = request or http_request or syn_request or fluxus_request
+local AUTORUN_SOURCE = [==[
+repeat task.wait() until game:IsLoaded()
 
-    local Success, ErrorMessage = pcall(function()
-        local Response = Request({
-            Url = ScriptData.Url,
-            Method = "GET"
+local SelectedSpec = __SPEC__
+local AutorunSource = __SOURCE__
+
+local function quote(value)
+    return string.format("%q", tostring(value or ""))
+end
+
+local function buildPayload(spec)
+    local payload = AutorunSource
+    payload = payload:gsub("__SPEC__", function()
+        return quote(spec)
+    end, 1)
+    payload = payload:gsub("__SOURCE__", function()
+        return quote(AutorunSource)
+    end, 1)
+    return payload
+end
+
+local function normalizeSpec(spec)
+    spec = tostring(spec or "")
+    spec = spec:gsub("^%s+", ""):gsub("%s+$", "")
+
+    local markdownUrl = spec:match("^%[.-%]%((https?://.-)%)$")
+    if markdownUrl then
+        spec = markdownUrl
+    end
+
+    return spec
+end
+
+local function extractUrl(spec)
+    spec = normalizeSpec(spec)
+
+    if spec:match("^https?://") then
+        return spec
+    end
+
+    local url = spec:match("https?://[^\"'%s%)%]]+")
+    if url then
+        url = url:gsub("[,;]+$", "")
+    end
+
+    return url
+end
+
+local function getRequest()
+    return request
+        or http_request
+        or syn_request
+        or fluxus_request
+        or (syn and syn.request)
+end
+
+local function executeSource(source)
+    if type(source) ~= "string" or source == "" then
+        return false, "Empty response body"
+    end
+
+    source = source:gsub("^\239\187\191", "")
+
+    local fn, compileError = loadstring(source)
+    if not fn then
+        return false, compileError
+    end
+
+    local ok, runtimeError = pcall(fn)
+    if not ok then
+        return false, runtimeError
+    end
+
+    return true
+end
+
+local function fetchWithRequest(url)
+    local Request = getRequest()
+    if not Request then
+        return nil, "Request function not supported"
+    end
+
+    local ok, response = pcall(function()
+        return Request({
+            Url = url,
+            Method = "GET",
+            Headers = {
+                ["Accept"] = "*/*"
+            }
         })
+    end)
 
-        if not Response or not Response.Success then
-            error("Request failed: " .. tostring(Response and Response.StatusCode))
+    if not ok then
+        return nil, response
+    end
+
+    if type(response) == "string" then
+        return response
+    end
+
+    if type(response) ~= "table" then
+        return nil, "Invalid request response"
+    end
+
+    local body = response.Body or response.body or response.ResponseBody
+    local status = tonumber(response.StatusCode or response.Status or response.status_code)
+
+    if status and (status < 200 or status >= 400) then
+        return nil, "HTTP " .. tostring(status)
+    end
+
+    if type(body) ~= "string" or body == "" then
+        return nil, "Empty request body"
+    end
+
+    return body
+end
+
+local function fetchWithHttpGet(url)
+    local ok, body = pcall(function()
+        return game:HttpGet(url, true)
+    end)
+
+    if not ok then
+        return nil, body
+    end
+
+    if type(body) ~= "string" or body == "" then
+        return nil, "Empty HttpGet body"
+    end
+
+    return body
+end
+
+local function runUrl(url)
+    -- Run URL exactly like: loadstring(game:HttpGet("URL"))()
+    local ok, result = pcall(function()
+        local source = game:HttpGet(url)
+        local fn, compileError = loadstring(source)
+
+        if not fn then
+            error(compileError)
         end
 
-        local LoadedScript, LoadError = loadstring(Response.Body)
+        return fn()
+    end)
+
+    if ok then
+        return true
+    end
+
+    return false, result
+end
+
+local function runAny(spec)
+    spec = normalizeSpec(spec)
+    if spec == "" then
+        return false, "No URL/loader provided"
+    end
+
+    local url = extractUrl(spec)
+    if url then
+        local ok, err = runUrl(url)
+        if ok then
+            return true
+        end
+
+        if not spec:match("^https?://") then
+            local directOk, directErr = executeSource(spec)
+            if directOk then
+                return true
+            end
+            return false, tostring(err) .. " | direct loader: " .. tostring(directErr)
+        end
+
+        return false, err
+    end
+
+    return executeSource(spec)
+end
+
+local QueueTeleport =
+    queue_on_teleport
+    or queueonteleport
+    or (syn and syn.queue_on_teleport)
+
+if QueueTeleport then
+    pcall(function()
+        QueueTeleport(buildPayload(SelectedSpec))
+    end)
+end
+
+task.wait(1.5)
+
+local ok, err = runAny(SelectedSpec)
+if not ok then
+    warn("[AutoTeleport] " .. tostring(err))
+end
+]==]
+
+local function BuildTeleportPayload(spec)
+    local payload = AUTORUN_SOURCE
+    payload = payload:gsub("__SPEC__", function()
+        return string.format("%q", tostring(spec or ""))
+    end, 1)
+    payload = payload:gsub("__SOURCE__", function()
+        return string.format("%q", AUTORUN_SOURCE)
+    end, 1)
+    return payload
+end
+
+local function NormalizeSpec(spec)
+    spec = tostring(spec or "")
+    spec = spec:gsub("^%s+", ""):gsub("%s+$", "")
+
+    local markdownUrl = spec:match("^%[.-%]%((https?://.-)%)$")
+    if markdownUrl then
+        spec = markdownUrl
+    end
+
+    return spec
+end
+
+local function ExtractUrl(spec)
+    spec = NormalizeSpec(spec)
+
+    if spec:match("^https?://") then
+        return spec
+    end
+
+    local url = spec:match("https?://[^\"'%s%)%]]+")
+    if url then
+        url = url:gsub("[,;]+$", "")
+    end
+
+    return url
+end
+
+local function GetRequest()
+    return request
+        or http_request
+        or syn_request
+        or fluxus_request
+        or (syn and syn.request)
+end
+
+local function ExecuteSource(source)
+    if type(source) ~= "string" or source == "" then
+        return false, "Empty response body"
+    end
+
+    source = source:gsub("^\239\187\191", "")
+
+    local LoadedScript, LoadError = loadstring(source)
+    if not LoadedScript then
+        return false, LoadError
+    end
+
+    local ok, RuntimeError = pcall(LoadedScript)
+    if not ok then
+        return false, RuntimeError
+    end
+
+    return true
+end
+
+local function FetchWithRequest(url)
+    local Request = GetRequest()
+    if not Request then
+        return nil, "Request function not supported"
+    end
+
+    local ok, Response = pcall(function()
+        return Request({
+            Url = url,
+            Method = "GET",
+            Headers = {
+                ["Accept"] = "*/*"
+            }
+        })
+    end)
+
+    if not ok then
+        return nil, Response
+    end
+
+    if type(Response) == "string" then
+        return Response
+    end
+
+    if type(Response) ~= "table" then
+        return nil, "Invalid request response"
+    end
+
+    local Body = Response.Body or Response.body or Response.ResponseBody
+    local Status = tonumber(Response.StatusCode or Response.Status or Response.status_code)
+
+    if Status and (Status < 200 or Status >= 400) then
+        return nil, "HTTP " .. tostring(Status)
+    end
+
+    if type(Body) ~= "string" or Body == "" then
+        return nil, "Empty request body"
+    end
+
+    return Body
+end
+
+local function FetchWithHttpGet(url)
+    local ok, Body = pcall(function()
+        return game:HttpGet(url, true)
+    end)
+
+    if not ok then
+        return nil, Body
+    end
+
+    if type(Body) ~= "string" or Body == "" then
+        return nil, "Empty HttpGet body"
+    end
+
+    return Body
+end
+
+local function RunUrl(url)
+    -- Run URL exactly like: loadstring(game:HttpGet("URL"))()
+    local ok, Result = pcall(function()
+        local Source = game:HttpGet(url)
+        local LoadedScript, LoadError = loadstring(Source)
+
         if not LoadedScript then
             error(LoadError)
         end
 
-        LoadedScript()
+        return LoadedScript()
     end)
+
+    if ok then
+        return true
+    end
+
+    return false, Result
+end
+
+local function RunAny(spec)
+    spec = NormalizeSpec(spec)
+    if spec == "" then
+        return false, "No URL/loader provided"
+    end
+
+    local url = ExtractUrl(spec)
+    if url then
+        local ok, err = RunUrl(url)
+        if ok then
+            return true
+        end
+
+        -- Full loader strings get one final direct-execution fallback.
+        if not spec:match("^https?://") then
+            local DirectOk, DirectError = ExecuteSource(spec)
+            if DirectOk then
+                return true
+            end
+            return false, tostring(err) .. " | direct loader: " .. tostring(DirectError)
+        end
+
+        return false, err
+    end
+
+    -- Also supports putting raw Lua loader/source directly in Url/Loader.
+    return ExecuteSource(spec)
+end
+
+local function GetScriptSpec(ScriptData)
+    return ScriptData.Loader or ScriptData.Url or ScriptData.Source
+end
+
+local function QueueSelectedScript(ScriptData)
+    local QueueTeleport =
+        queue_on_teleport
+        or queueonteleport
+        or (syn and syn.queue_on_teleport)
+
+    if not QueueTeleport then
+        warn("[Loader] Executor does not support queue_on_teleport")
+        return false
+    end
+
+    local spec = GetScriptSpec(ScriptData)
+    local Payload = BuildTeleportPayload(spec)
+
+    local Success, ErrorMessage = pcall(function()
+        QueueTeleport(Payload)
+    end)
+
+    if not Success then
+        warn("[Loader][Queue] " .. tostring(ErrorMessage))
+        return false
+    end
+
+    return true
+end
+
+local function RunScript(ScriptData)
+    QueueSelectedScript(ScriptData)
+
+    local spec = GetScriptSpec(ScriptData)
+    local Success, ErrorMessage = RunAny(spec)
 
     if not Success then
         warn("[Loader][" .. ScriptData.Name .. "] " .. tostring(ErrorMessage))
