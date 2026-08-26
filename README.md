@@ -76,6 +76,12 @@ local Scripts = {
         Url = "https://api.jnkie.com/api/v1/luascripts/public/ad7c82401cb2c897228819b03b8c30a902de114da2410b4cfb6675a8e7c141a8/download",
         Image = "rbxthumb://type=Asset&id=10794318086&w=420&h=420",
         Desc = "Esp, Inf sanity, Auto lobby"
+    },
+    {
+        Name = "Cheating During Testing",
+        Url = "https://api.jnkie.com/api/v1/luascripts/public/540549516a368096569ea7a1d1a9e964c6d2cca3afdf3fae57db9c53a2373736/download",
+        Image = "rbxthumb://type=Asset&id=22189922&w=420&h=420",
+        Desc = "Auto Play, Esp, Auto Answer"
     }
 }
 
