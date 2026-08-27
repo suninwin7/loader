@@ -82,6 +82,12 @@ local Scripts = {
         Url = "https://api.jnkie.com/api/v1/luascripts/public/540549516a368096569ea7a1d1a9e964c6d2cca3afdf3fae57db9c53a2373736/download",
         Image = "rbxthumb://type=Asset&id=22189922&w=420&h=420",
         Desc = "Auto Play, Esp, Auto Answer"
+    },
+    {
+        Name = "RUNAWAYS [beta]",
+        Url = "https://api.jnkie.com/api/v1/luascripts/public/b775b19ded33ec24d70193f4cde6b7844930e2e9d4ec74fd02c683e5e12d2847/download",
+        Image = "rbxthumb://type=Asset&id=14193174989&w=420&h=420",
+        Desc = "Full Auto Play, Instant Win, Kill All"
     }
 }
 
