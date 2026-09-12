@@ -88,6 +88,12 @@ local Scripts = {
         Url = "https://api.jnkie.com/api/v1/luascripts/public/b775b19ded33ec24d70193f4cde6b7844930e2e9d4ec74fd02c683e5e12d2847/download",
         Image = "rbxthumb://type=Asset&id=14193174989&w=420&h=420",
         Desc = "Full Auto Play, Instant Win, Kill All"
+    },
+	{
+        Name = "Anime Dice",
+        Url = "https://api.jnkie.com/api/v1/luascripts/public/dd0b7e0ba5de73cfb04e1f77b67e13b5ae342517863ad1b4bef51cf76e87bdc1/download",
+        Image = "rbxthumb://type=Asset&id=1119030529&w=420&h=420",
+        Desc = "Full Auto Play, Instant Roll, Auto Collect"
     }
 }
 
