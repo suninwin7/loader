@@ -37,7 +37,7 @@ local Scripts = {
     },
     {
         Name = "Drain The Lake (KEYLESS)",
-        Url = "https://obfuscatorhub.onrender.com/api/i71mnfmj",
+        Url = "https://pastefy.app/IzVNuwBz/raw",
         Image = "rbxthumb://type=Asset&id=11846929740&w=420&h=420",
         Desc = "Auto farm, Auto sell, Anti-afk."
     },
@@ -61,7 +61,7 @@ local Scripts = {
     },
     {
         Name = "MM2 (KEYLESS)",
-        Url = "https://obfuscatorhub.onrender.com/api/nwsqf6ed",
+        Url = "https://pastefy.app/0Ey9690b/raw",
         Image = "rbxthumb://type=Asset&id=838484753&w=420&h=420",
         Desc = "Auto coin, boost fps, Auto box."
     },
