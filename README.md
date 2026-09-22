@@ -1,4 +1,3 @@
-<img width="994" height="584" alt="image" src="https://github.com/user-attachments/assets/3423e3c1-f455-41f3-9d00-35d516f51f78" />
 repeat task.wait() until game:IsLoaded()
 
 local Players = game:GetService("Players")
