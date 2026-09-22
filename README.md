@@ -1,3 +1,4 @@
+<img width="994" height="584" alt="image" src="https://github.com/user-attachments/assets/3423e3c1-f455-41f3-9d00-35d516f51f78" />
 repeat task.wait() until game:IsLoaded()
 
 local Players = game:GetService("Players")
@@ -94,6 +95,12 @@ local Scripts = {
         Url = "https://api.jnkie.com/api/v1/luascripts/public/dd0b7e0ba5de73cfb04e1f77b67e13b5ae342517863ad1b4bef51cf76e87bdc1/download",
         Image = "rbxthumb://type=Asset&id=1119030529&w=420&h=420",
         Desc = "Full Auto Play, Instant Roll, Auto Collect"
+    },
+	{
+        Name = "Steal an egg",
+        Url = "https://pastefy.app/Z8dm0QE1/raw",
+        Image = "rbxthumb://type=Asset&id=11622456609&w=420&h=420",
+        Desc = "Auto Steal Egg, Insane Speed, Auto Hatch"
     }
 }
 
