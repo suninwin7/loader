@@ -595,8 +595,8 @@ local function QueueSelectedScript(ScriptData)
     return true
 end
 
-local function RunScript(ScriptData)
-    QueueSelectedScript(ScriptData)
+local function RunScript(ScriptData, AutoHop)
+    if AutoHop then QueueSelectedScript(ScriptData) end
 
     local spec = GetScriptSpec(ScriptData)
     local Success, ErrorMessage = RunAny(spec)
@@ -760,6 +760,48 @@ copyBtn.MouseButton1Click:Connect(function()
         hwidText.Text = "HWID: HIDDEN"
         hwidText.TextColor3 = Theme.TextMuted
     end
+end)
+
+local autoHop = false
+local hopRow = new("TextButton", {
+    Name = "AutoExecuteOnHop",
+    Size = UDim2.new(1, -30, 0, 32),
+    Position = UDim2.fromOffset(15, 310),
+    BackgroundColor3 = Theme.Background,
+    Text = "",
+    AutoButtonColor = false
+}, userPanel)
+corner(hopRow, 6)
+stroke(hopRow, Theme.ButtonBg, 1)
+local hopBox = new("Frame", {
+    Size = UDim2.fromOffset(17, 17),
+    Position = UDim2.fromOffset(9, 7),
+    BackgroundColor3 = Theme.ButtonBg
+}, hopRow)
+corner(hopBox, 4)
+stroke(hopBox, Theme.AccentRed, 1)
+local hopCheck = new("TextLabel", {
+    Size = UDim2.fromScale(1, 1),
+    BackgroundTransparency = 1,
+    Text = "",
+    Font = Enum.Font.GothamBold,
+    TextSize = 14,
+    TextColor3 = Theme.TextMain
+}, hopBox)
+new("TextLabel", {
+    Size = UDim2.new(1, -35, 1, 0),
+    Position = UDim2.fromOffset(34, 0),
+    BackgroundTransparency = 1,
+    Text = "Auto Execute on Hop",
+    Font = Enum.Font.GothamSemibold,
+    TextSize = 11,
+    TextColor3 = Theme.TextMain,
+    TextXAlignment = Enum.TextXAlignment.Left
+}, hopRow)
+hopRow.MouseButton1Click:Connect(function()
+    autoHop = not autoHop
+    hopCheck.Text = autoHop and "✓" or ""
+    hopBox.BackgroundColor3 = autoHop and Theme.AccentDarkRed or Theme.ButtonBg
 end)
 
 local clock = new("TextLabel", {
@@ -1103,7 +1145,7 @@ execZone.MouseButton1Click:Connect(function()
     local data = Scripts[currentIndex]
     print("BatmanScript Loaded -> " .. data.Name)
     launcher:Destroy()
-    RunScript(data)
+    RunScript(data, autoHop)
 end)
 
 do
