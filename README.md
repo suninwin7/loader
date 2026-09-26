@@ -61,7 +61,7 @@ local Scripts = {
     },
     {
         Name = "MM2 (KEYLESS)",
-        Url = "https://pastefy.app/0Ey9690b/raw",
+        Url = "https://pastefy.app/XqrbYXXE/raw",
         Image = "rbxthumb://type=Asset&id=838484753&w=420&h=420",
         Desc = "Auto coin, boost fps, Auto box."
     },
