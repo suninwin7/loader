@@ -105,13 +105,19 @@ local Scripts = {
         Name = "Crazy mukbang",
         Url = "https://api.jnkie.com/api/v1/luascripts/public/97d087c316a7537856df23e1c1d4a56f5a0d3a82f54e889bce28cfd8369f96bb/download",
         Image = "rbxthumb://type=Asset&id=7970878557&w=420&h=420",
-        Desc = "Auto Steal Egg, Insane Speed, Auto Hatch"
+        Desc = "Fully auto eat, Fast eat, Order func"
     },
 		{
         Name = "Deep fishing",
         Url = "https://api.jnkie.com/api/v1/luascripts/public/c0924a87a7f8af1b826d1ecddf1680ac4b55d70a2d85261761a69646052e3ed3/download",
         Image = "rbxthumb://type=Asset&id=105283530&w=420&h=420",
-        Desc = "Auto Steal Egg, Insane Speed, Auto Hatch"
+        Desc = "Auto fishing . Auto Sell , Auto Upgrade"
+    },
+		{
+        Name = "Conveyor Sushi (NOT RELEASE YET)",
+        Url = "",
+        Image = "rbxthumb://type=Asset&id=6915989314&w=420&h=420",
+        Desc = "Fully auto eat, Fast eat, Order func"
     }
 }
 
