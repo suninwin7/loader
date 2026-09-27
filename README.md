@@ -103,14 +103,14 @@ local Scripts = {
     },
 		{
         Name = "Crazy mukbang",
-        Url = "https://pastefy.app/Z8dm0QE1/raw",
-        Image = "rbxthumb://type=Asset&id=11622456609&w=420&h=420",
+        Url = "https://api.jnkie.com/api/v1/luascripts/public/97d087c316a7537856df23e1c1d4a56f5a0d3a82f54e889bce28cfd8369f96bb/download",
+        Image = "rbxthumb://type=Asset&id=7970878557&w=420&h=420",
         Desc = "Auto Steal Egg, Insane Speed, Auto Hatch"
     },
 		{
         Name = "Deep fishing",
-        Url = "https://pastefy.app/Z8dm0QE1/raw",
-        Image = "rbxthumb://type=Asset&id=11622456609&w=420&h=420",
+        Url = "https://api.jnkie.com/api/v1/luascripts/public/c0924a87a7f8af1b826d1ecddf1680ac4b55d70a2d85261761a69646052e3ed3/download",
+        Image = "rbxthumb://type=Asset&id=105283530&w=420&h=420",
         Desc = "Auto Steal Egg, Insane Speed, Auto Hatch"
     }
 }
