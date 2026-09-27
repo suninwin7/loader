@@ -96,7 +96,7 @@ local Scripts = {
         Desc = "Full Auto Play, Instant Roll, Auto Collect"
     },
 	{
-        Name = "Steal an egg",
+        Name = "Steal an egg (KEYLESS)",
         Url = "https://pastefy.app/Z8dm0QE1/raw",
         Image = "rbxthumb://type=Asset&id=11622456609&w=420&h=420",
         Desc = "Auto Steal Egg, Insane Speed, Auto Hatch"
