@@ -123,7 +123,7 @@ local Scripts = {
         Name = "+1 Loot To Forge",
         Url = "https://api.jnkie.com/api/v1/luascripts/public/356ad0fbd9be7aa7b0e8cd942abcc882a5b363b45f121c6f574ae676c82f68da/download",
         Image = "rbxthumb://type=Asset&id=72684190984101&w=420&h=420",
-        Desc = "Fully auto eat, Fast eat, Order func"
+        Desc = "Fully auto farm, Ember Spawner, Ticket Spawner"
     }
 }
 
