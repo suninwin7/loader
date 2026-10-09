@@ -118,6 +118,12 @@ local Scripts = {
         Url = "https://api.jnkie.com/api/v1/luascripts/public/19d2bc976a903371a0abdf98f6ecdf65c0e8ef69d3259506c0d5b8f0cf4e18fc/download",
         Image = "rbxthumb://type=Asset&id=6915989314&w=420&h=420",
         Desc = "Fully auto eat, Fast eat, Order func"
+    },
+		{
+        Name = "+1 Loot To Forge",
+        Url = "https://api.jnkie.com/api/v1/luascripts/public/356ad0fbd9be7aa7b0e8cd942abcc882a5b363b45f121c6f574ae676c82f68da/download",
+        Image = "rbxthumb://type=Asset&id=72684190984101&w=420&h=420",
+        Desc = "Fully auto eat, Fast eat, Order func"
     }
 }
 
