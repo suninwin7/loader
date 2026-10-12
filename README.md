@@ -124,6 +124,12 @@ local Scripts = {
         Url = "https://api.jnkie.com/api/v1/luascripts/public/356ad0fbd9be7aa7b0e8cd942abcc882a5b363b45f121c6f574ae676c82f68da/download",
         Image = "rbxthumb://type=Asset&id=72684190984101&w=420&h=420",
         Desc = "Fully auto farm, Ember Spawner, Reroll Spawner"
+    },
+		{
+        Name = "Build An Ant Empire",
+        Url = "https://api.jnkie.com/api/v1/luascripts/public/dbd355e49a0b447b84743287a95898dda56d78c366d399ae1562a08ba4acf738/download",
+        Image = "rbxthumb://type=Asset&id=1542352993&w=420&h=420",
+        Desc = "Money Spawner + Item Spawner + Ant Spawner"
     }
 }
 
